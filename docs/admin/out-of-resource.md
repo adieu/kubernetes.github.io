@@ -29,7 +29,7 @@ table below.  The value of each signal is described in the description column ba
 summary API.
 
 | Eviction Signal  | Description                                                                     |
-|------------------|---------------------------------------------------------------------------------|
+|----------------------------|-----------------------------------------------------------------------|
 | `memory.available` | `memory.available` := `node.status.capacity[memory]` - `node.stats.memory.workingSet` |
 
 In future releases, the `kubelet` will support the ability to trigger eviction decisions based on disk pressure.
@@ -101,7 +101,7 @@ reflects the node is under pressure.
 The following node conditions are defined that correspond to the specified eviction signal.
 
 | Node Condition | Eviction Signal  | Description                                                      |
-|----------------|------------------|------------------------------------------------------------------|
+|-------------------------|-------------------------------|--------------------------------------------|
 | `MemoryPressure` | `memory.available` | Available memory on the node has satisfied an eviction threshold |
 
 The `kubelet` will continue to report node status updates at the frequency specified by
@@ -169,7 +169,7 @@ the node depends on the [oom_killer](https://lwn.net/Articles/391222/) to respon
 The `kubelet` sets a `oom_score_adj` value for each container based on the quality of service for the pod.
 
 | Quality of Service | oom_score_adj |
-| -----------------  | ------------- |
+|----------------------------|-----------------------------------------------------------------------|
 | `Guaranteed` | -998 |
 | `BestEffort` | 1000 |
 | `Burstable` | min(max(2, 1000 - (1000 * memoryRequestBytes) / machineMemoryCapacityBytes), 999) |
